@@ -3,4 +3,9 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-    - run: Get-Location
+    - run: .\Tools\nircmd.exe savescreenshot screenshot.png
+    - uses: actions/upload-artifact@v4
+      with:
+        name: screenshot
+        path: screenshot.png
+        overwrite: true
